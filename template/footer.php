@@ -14,6 +14,7 @@
                     <li class="nav-item"><a class="text-white" href="catalogo.php">Catálogo</a></li>
                     <li class="nav-item"><a class="text-white" href="cadastro.php">Cadastre-se</a></li>
                     <li class="nav-item"><a class="text-white" href="contato.php">Contato</a></li>
+                    <li class="nav-item"><a class="text-white" href="login.php">Login</a></li>
                     <!--<li class="nav-item"><a class="text-white" href="">Notícias</a></li>
                     <li class="nav-item"><a class="text-white" href="">Sobre</a></li>-->
                 </ul>  
