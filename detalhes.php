@@ -1,6 +1,6 @@
 <?php
 include_once"template/header.php";
-require_once 'autoload.php';
+require_once '_autoload.php';
 $lista = new EstabelecimentoDAO();
 ?>
 <main role="main">

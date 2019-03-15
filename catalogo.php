@@ -1,6 +1,6 @@
 <?php
 include_once"template/header.php";
-require_once 'autoload.php';
+require_once '_autoload.php';
 $ce = new ControllerEstabelecimento();
 $ce->buscar();
 ?>
@@ -27,7 +27,7 @@ $ce->buscar();
                             ?>
                         </select>
                     </div>
-                    <div class="col-md-3 col-sm-12 form-group">
+                    <div class="col-md-3 col-sm-3 form-group">
                         <select class="form-control  form-control-lg" name="bairro">
                             <option selected disabled value="NULL">Bairro</option>
                             <?php
@@ -60,16 +60,16 @@ $ce->buscar();
                     if ($lista->listar()) {
                         foreach ($lista->listar() as $l) {
                             ?>
-                            <div class="col-md-3">
-                                <div class="card  mb-4 shadow" >
+                            <div class="col-md-3 col-sm-4">
+                                <div class="card mb-2 shadow" >
                                     <a href="detalhes.php?store=<?= $l['eid'] ?>" style="text-decoration: none;">
                                         <?php
                                         if (isset($l['eimagem']) || !empty($l['eimagem']) || $l['eimagem'] != "") {
                                             ?>
-                                            <img class="card-img-top" src="fotos/<?= $l['eimagem'];?>">
+                                            <img class="card-img-top" src="fotos/<?= $l['eimagem'];?>" alt="<?= $l['eimagem'];?>" rel="nofollow">
                                         <?php } else {
                                             ?>
-                                            <img class="card-img-top" src="images/teste.svg">
+                                            <img class="card-img-top" src="images/teste.svg" rel="nofollow">
                                             <?php
                                         }
                                         ?>
@@ -77,7 +77,6 @@ $ce->buscar();
                                             <p class="card-text text-center">
                                                 <b><?= $l['enome'] ?></b><br/>
                                                 <?= $l['etelefone'] ?><br/>
-                                                <small><?= $l['eemail'] ?></small>
                                             </p>
                                         </div>
                                     </a>
@@ -89,7 +88,7 @@ $ce->buscar();
                         echo"<div class='alert alert-danger'>Não existem estebelecimentos cadastrados ainda seja o primeiro.</div>";
                     }
                 } elseif ($ce->buscar()) {
-                    echo '<h1 class="display-4 col-md-12 text-success">Resultados da busca</h1>';
+                    echo '<h1 class="display-4 col-md-12 text-success">Encontrado(s) </h1>';
                     foreach ($ce->buscar as $r) {
                         ?>
 
@@ -111,7 +110,6 @@ $ce->buscar();
                                             <b><?= $r['enome'] ?></b><br/>
                                             <?=$r['cnome'] ?><br/>
                                             <?=$r['etelefone'] ?><br/>
-                                            <small><?= $r['eemail'] ?></small>
                                         </p>
                                     </div>
                                 </a>

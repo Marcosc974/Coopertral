@@ -1,29 +1,48 @@
 <?php include_once"template/header.php" ?>
 <main role="main">
     <br/>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="images/banner.png" alt="First slide">
+    <!--Test new Carrousel-->
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/banner.png" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem Vindo a Cooperativa Coopertral</h2>
+                        <p>Você está prestes a conhecer um mundo de Oportunidades maravilhosas.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/banner.png" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Torne-se um Parceiro</h2>
+                        <p>Ao tornar-se parceiro você poderá participar ativamente de vários sorteios além de diversas outras vantagens disponilizadas pela cooperativa.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/banner.png" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Adquira já seu cartão VIP COOPERTRAL</h2>
+                        <p>Com o Cartão VIP Coopertral Você têm direito a diversos descontos nos nossos comércios parceiros.</p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/banner2.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="images/banner3.jpg" alt="Third slide">
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Voltar</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Avançar</span>
-        </a>
     </div>
-    <!--End Carrousel-->
-
+    <!--End Test new Carrousel-->
     <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
@@ -61,7 +80,7 @@
             <div class="my-3 py-3">
                 <h2 class="display-4 text-success">Como são os sorteios?</h2>
                 <p class="lead">
-                    São realizados três sorteios mensais. Sempre no ultimo dia de cada mês, o sorteio é realizado no nosso escritório e pode ser acompanhado através de nossas redes sociais.
+                    São realizados sorteios mensais e é realizado no nosso escritório e pode ser acompanhado através de nossas redes sociais.
                 </p>
             </div>
         </div>
@@ -70,7 +89,7 @@
                 <img class="img-fluid img-thumbnail" src="images/sorteio.jpg">
             </div>
         </div>
-        
+
     </div>
 </main>
 <?php

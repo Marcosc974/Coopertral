@@ -26,7 +26,7 @@ class EstabelecimentoDAO {
             return "Erro ao salvar a Classe: (Estabelecimento): " . $e->getMessage();
         }
     }
-
+    
     public function alterarStatus($status, $eid) {
         try {
             $sql = "UPDATE estabelecimento SET estatus=? WHERE eid=?";
@@ -76,7 +76,7 @@ class EstabelecimentoDAO {
 
     public function listar() {
         try {
-            $sql = "SELECT eid,enome,eimagem,etelefone,eemail FROM estabelecimento WHERE estatus = 1 ORDER BY edata DESC LIMIT 12";
+            $sql = "SELECT eid,enome,eimagem,etelefone,eemail FROM estabelecimento WHERE estatus = 1 ORDER BY edata DESC";
             $stm = Conexao::conectar()->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();
@@ -85,10 +85,16 @@ class EstabelecimentoDAO {
             return "Erro- listar- Class: (Estabelecimento): " . $e->getMessage();
         }
     }
-
+    public function contar() {
+        $sql = "SELECT COUNT(enome) FROM estabelecimento Where estatus=1";
+        $stm = Conexao::conectar()->prepare($sql);
+        $stm->execute();
+        $result = $stm->fetch();
+        return $result;
+    }
     public function listarAdm() {
         try {
-            $sql = "SELECT * FROM estabelecimento WHERE eid <> 1";
+            $sql = "SELECT * FROM estabelecimento WHERE eid <> 2";
             $stm = Conexao::conectar()->prepare($sql);
             $stm->execute();
             $result = $stm->fetchAll();

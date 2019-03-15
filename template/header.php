@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="keywords" content="Cooperativa, Coopertral, Trabalhadores, Águas Lindas, Goiás">
-        <meta name="description" content="Cooperativa Coopertral a Cooperativa dos Trabalhadores de Águas Lindas de goiás">
-        <!--CDN Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <!--FontAwesome-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-        <!--PRODUCT-bootstrap-->
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/product.css">
+        <title>Cooperativa Coopertral</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta name="theme-color" content="SeaGreen">
+        <link rel="shortcut icon" type="image/x-icon" href="images/fav.ico">
+        <meta name="description" content="A Cooperativa Coopertral é a cooperativa dos trabalhadores e Comerciantes de Águas Lindas de Goiás.">
+        <meta name="keywords" content="cooperativa,coopertral,águas lindas de goiás,cooperativa aguas lindas, trabalhadores,cooperativismo,cooperativas,comercio,comércio,trabalho">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="Portuguese">
+        <meta name="generator" content="html">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/product.css">
         <script src='https://www.google.com/recaptcha/api.js'></script>
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
@@ -48,8 +52,6 @@
                     <a class="nav-item nav-link text-white" href="catalogo.php">Catálogo</a>
                     <a class="nav-item nav-link text-white" href="cadastro.php">Cadastre-Se</a>
                     <a class="nav-item nav-link text-white" href="contato.php">Contato</a>
-                    <!--<a class="nav-item nav-link text-white" href="news.php">NOTÍCIAS</a>
-                      <a class="nav-item nav-link text-white" href="sobre.php">SOBRE</a>-->
                 </div>
             </div>
         </nav>

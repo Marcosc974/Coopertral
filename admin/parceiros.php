@@ -1,4 +1,5 @@
 <?php
+require_once'./validacao.php';
 require_once '../Classes/EstabelecimentoDAO.php';
 require_once '../Classes/ControllerEstabelecimento.php';
 
