@@ -1,7 +1,7 @@
-<?php require_once './template/header.php';?>
+<?php require_once include_once"template".DIRECTORY_SEPARATOR."header.php";?>
 <main role="main">
     <div class="container">
         
     </div> 
 </main>
-<?php require_once './template/footer.php';
+<?php include_once"template".DIRECTORY_SEPARATOR."footer.php";

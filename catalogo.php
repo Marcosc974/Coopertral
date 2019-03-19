@@ -1,5 +1,5 @@
 <?php
-include_once"template/header.php";
+include_once"template".DIRECTORY_SEPARATOR."header.php";
 require_once '_autoload.php';
 $ce = new ControllerEstabelecimento();
 $ce->buscar();
@@ -32,7 +32,7 @@ $ce->buscar();
                             <option selected disabled value="NULL">Bairro</option>
                             <?php
                             $bairro = new BairroDAO();
-
+                            
                             foreach ($bairro->listar() as $ba) {
                                 ?>
                                 <option value="<?= $ba['bid']; ?>"><?= $ba['bnome']; ?></option>
@@ -128,4 +128,4 @@ $ce->buscar();
         </div> 
     </section>
 </main>
-<?php include_once"template/footer.php"; ?>
+<?php include_once"template".DIRECTORY_SEPARATOR."footer.php"; ?>

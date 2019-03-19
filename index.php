@@ -1,6 +1,6 @@
-<?php include_once"template/header.php" ?>
+<?php include_once "template" . DIRECTORY_SEPARATOR . "header.php"; ?>
 <main role="main">
-    <br/>
+    <br />
     <!--Test new Carrousel-->
     <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -47,7 +47,11 @@
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
                 <h1 class="display-4 text-success">O que é a coopertral?</h1>
-                <p class="lead">Somos a cooperativa dos trabalhadores de Águas Lindas de Goiás, temos o plano de realizar uma união de todos os trabalhadores da cidade, sejam eles autônomos, empreendedores, comerciantes ou empresários.</p>
+                <p class="lead">Somos a cooperativa dos trabalhadores de Águas Lindas de Goiás, temos o plano de realizar uma união de todos os trabalhadores da cidade, sejam eles autônomos, empreendedores, comerciantes ou empresários.
+                    <br />
+                    <a href="">Leia Mais..</a>
+                </p>
+
             </div>
         </div>
         <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -70,8 +74,10 @@
             <div class="my-3 py-3">
                 <h2 class="display-4 text-success">Vantagens</h2>
                 <p class="lead">
-                    Ao juntar-se conosco você adquire o cartão <strong>VIP COOPERTRAL</strong>, com ele terá descontos ao comprar nos comércios <srong>parceiros</srong> além poder participar ativamente de sorteios e eventos promovidos pela Cooperativa.
+                    Ao juntar-se conosco você adquire o cartão <strong>VIP COOPERTRAL</strong>, com ele terá descontos ao comprar nos comércios <strong>parceiros</strong> além poder participar ativamente de sorteios e eventos promovidos pela Cooperativa.<br />
+                    <a href="">Leia Mais..</a>
                 </p>
+
             </div>
         </div>
     </div>
@@ -80,7 +86,8 @@
             <div class="my-3 py-3">
                 <h2 class="display-4 text-success">Como são os sorteios?</h2>
                 <p class="lead">
-                    São realizados sorteios mensais e é realizado no nosso escritório e pode ser acompanhado através de nossas redes sociais.
+                    Mensalmente realizamos sorteios em nosso escritório e estes podem ser acompanhados através de nossas redes sociais.<br />
+                    <a href="">Leia Mais..</a>
                 </p>
             </div>
         </div>
@@ -93,4 +100,4 @@
     </div>
 </main>
 <?php
-include_once"template/footer.php";
+include_once "template" . DIRECTORY_SEPARATOR . "footer.php";

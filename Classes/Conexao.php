@@ -6,9 +6,9 @@ class Conexao {
 
     public static function conectar() {
         try {
-            #"coopera3_coop","coopertral"
             if (!isset(self::$conn)) {
                 self::$conn = new PDO("mysql:host=localhost;dbname=coopera3_coopertral;charset=utf8","root","");
+                #self::$conn = new PDO("mysql:host=localhost;dbname=coopera3_coopertral;charset=utf8","coopera3_coop","coopertral");
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
             return self::$conn;

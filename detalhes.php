@@ -1,5 +1,5 @@
 <?php
-include_once"template/header.php";
+include_once"template" . DIRECTORY_SEPARATOR . "header.php";
 require_once '_autoload.php';
 $lista = new EstabelecimentoDAO();
 ?>
@@ -11,19 +11,6 @@ $lista = new EstabelecimentoDAO();
                 foreach ($lista->store($_GET['store']) as $detail) {
                     ?>
                     <div class="row">
-
-                        <div class="col-md-4">
-                            <?php
-                            if (isset($detail['eimagem'])) {
-                                ?>
-                                <img class="card-img-top img-thumbnail" src="fotos/<?= $detail['eimagem']; ?>">
-                            <?php } else {
-                                ?>
-                                <img class="card-img-top" src="images/teste.svg">
-                                <?php
-                            }
-                            ?>
-                        </div>
                         <div class="col-md-8">
                             <h1><?= $detail['enome']; ?></h1>
                             <strong><i class="fa fa-home"></i> Endereço: </strong><?= $detail['eendereco']; ?><br/>
@@ -34,17 +21,29 @@ $lista = new EstabelecimentoDAO();
                             <strong><i class="fa fa-clipboard-list"></i> Categoria: </strong>
                             <span class="badge badge-pill badge-success"><?= $detail['cnome']; ?></span>
                             <br/>
-                            <strong><i class="fa fa-file-signature"></i> Descrição:</strong>
+                            <strong><i class="fa fa-file-signature"></i> Sobre:</strong>
                             <p><?= $detail['edescricao']; ?></p>
                         </div>
-
+                        <div class="col-md-4">
+                            <?php
+                            if (isset($detail['eimagem'])) {
+                                ?>
+                            <img class="card-img-top img-thumbnail" src="fotos/<?= $detail['eimagem'];?>" title="<?= $detail['enome']; ?>">
+                            <?php } else {
+                                ?>
+                                <img class="card-img-top" src="images/teste.svg">
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
-                    <br/>
-                    <div class="row col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="embed-responsive embed-responsive-16by9">
                             <?= $detail['elink']; ?>
                         </div>
                     </div>
+                </div>
                     <?php
                 }
                 ?>
@@ -52,4 +51,4 @@ $lista = new EstabelecimentoDAO();
         </div> 
     </div>
 </main>
-<?php include_once"template/footer.php"; ?>
+<?php include_once"template" . DIRECTORY_SEPARATOR . "footer.php"; ?>
