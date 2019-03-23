@@ -1,5 +1,5 @@
 <?php
-include_once"template".DIRECTORY_SEPARATOR."header.php";
+include_once "template" . DIRECTORY_SEPARATOR . "header.php";
 require_once '_autoload.php';
 $ce = new ControllerEstabelecimento();
 $ce->buscar();
@@ -21,10 +21,11 @@ $ce->buscar();
                             $categoria = new CategoriaDAO();
                             foreach ($categoria->listar() as $ca) {
                                 ?>
-                                <option value="<?= $ca['cid']; ?>"><?= $ca['cnome']; ?></option>
-                                <?php
-                            }
-                            ?>
+                            <option value="<?= $ca['cid']; ?>"><?= $ca['cnome']; ?></option>
+                            <?php
+
+                        }
+                        ?>
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-3 form-group">
@@ -32,13 +33,14 @@ $ce->buscar();
                             <option selected disabled value="NULL">Bairro</option>
                             <?php
                             $bairro = new BairroDAO();
-                            
+
                             foreach ($bairro->listar() as $ba) {
                                 ?>
-                                <option value="<?= $ba['bid']; ?>"><?= $ba['bnome']; ?></option>
-                                <?php
-                            }
-                            ?>
+                            <option value="<?= $ba['bid']; ?>"><?= $ba['bnome']; ?></option>
+                            <?php
+
+                        }
+                        ?>
                         </select>
                     </div>
                     <div class="col-md-2 col-sm-12 form-group">
@@ -60,72 +62,81 @@ $ce->buscar();
                     if ($lista->listar()) {
                         foreach ($lista->listar() as $l) {
                             ?>
-                            <div class="col-md-3 col-sm-4">
-                                <div class="card mb-2 shadow" >
-                                    <a href="detalhes.php?store=<?= $l['eid'] ?>" style="text-decoration: none;">
-                                        <?php
-                                        if (isset($l['eimagem']) || !empty($l['eimagem']) || $l['eimagem'] != "") {
-                                            ?>
-                                            <img class="card-img-top" src="fotos/<?= $l['eimagem'];?>" alt="<?= $l['eimagem'];?>" rel="nofollow">
-                                        <?php } else {
-                                            ?>
-                                            <img class="card-img-top" src="images/teste.svg" rel="nofollow">
-                                            <?php
-                                        }
-                                        ?>
-                                        <div class="card-body">
-                                            <p class="card-text text-center">
-                                                <b><?= $l['enome'] ?></b><br/>
-                                                <?= $l['etelefone'] ?><br/>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="card mb-2 shadow">
+                        <a href="detalhes.php?store=<?= $l['eid'] ?>" style="text-decoration: none;">
                             <?php
-                        }
-                    } else {
-                        echo"<div class='alert alert-danger'>Não existem estebelecimentos cadastrados ainda seja o primeiro.</div>";
-                    }
-                } elseif ($ce->buscar()) {
-                    echo '<h1 class="display-4 col-md-12 text-success">Encontrado(s) </h1>';
-                    foreach ($ce->buscar as $r) {
-                        ?>
+                            if (isset($l['eimagem']) || !empty($l['eimagem']) || $l['eimagem'] != "") {
+                                ?>
+                            <img class="card-img-top" src="fotos/<?= $l['eimagem']; ?>" alt="<?= $l['eimagem']; ?>" rel="nofollow">
+                            <?php 
+                        } else {
+                            ?>
+                            <img class="card-img-top" src="images/teste.svg" rel="nofollow">
+                            <?php
 
-                        <div class="col-md-3">
-                            <div class="card  mb-4 shadow" >
-                                <a href="detalhes.php?store=<?= $r['eid'] ?>" style="text-decoration: none;">
-                                    <?php
-                                    if (isset($r['eimagem']) || !empty($r['eimagem']) || $r['eimagem'] != "") {
-                                        ?>
-                                        <img class="card-img-top" src="fotos/<?= $r['eimagem'] ?>">
-                                    <?php } else {
-                                        ?>
-                                        <img class="card-img-top" src="images/teste.svg">
-                                        <?php
-                                    }
-                                    ?>
-                                    <div class="card-body">
-                                        <p class="card-text text-center">
-                                            <b><?= $r['enome'] ?></b><br/>
-                                            <?=$r['cnome'] ?><br/>
-                                            <?=$r['etelefone'] ?><br/>
-                                        </p>
-                                    </div>
-                                </a>
+                        }
+                        ?>
+                            <div class="card-body">
+                                <p class="card-text text-center">
+                                    <b><?= $l['enome'] ?></b><br />
+                                    <?= $l['etelefone'] ?><br />
+                                </p>
                             </div>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    ?>
-                    <div class="alert alert-danger"><p class="display-4">Nenhuma busca realizada!</p></div>
-                    <?php
-                }
-                ?>
+                        </a>
+                    </div>
+                </div>
+                <?php
+
+            }
+        } else {
+            echo "<div class='alert alert-danger'>Não existem estebelecimentos cadastrados ainda seja o primeiro.</div>";
+        }
+    } elseif ($ce->buscar()) {
+        echo '<h1 class="display-4 col-md-12 text-success">Encontrado(s) </h1>';
+        foreach ($ce->buscar as $r) {
+            ?>
+
+                <div class="col-md-3">
+                    <div class="card  mb-4 shadow">
+                        <a href="detalhes.php?store=<?= $r['eid'] ?>" style="text-decoration: none;">
+                            <?php
+                            if (isset($r['eimagem']) || !empty($r['eimagem']) || $r['eimagem'] != "") {
+                                ?>
+                            <img class="card-img-top" src="fotos/<?= $r['eimagem'] ?>">
+                            <?php 
+                        } else {
+                            ?>
+                            <img class="card-img-top" src="images/teste.svg">
+                            <?php
+
+                        }
+                        ?>
+                            <div class="card-body">
+                                <p class="card-text text-center">
+                                    <b><?= $r['enome'] ?></b><br />
+                                    <?= $r['cnome'] ?><br />
+                                    <?= $r['etelefone'] ?><br />
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <?php
+
+            }
+        } else {
+            ?>
+                <div class="alert alert-danger">
+                    <p class="display-4">Nenhuma busca realizada!</p>
+                </div>
+                <?php
+
+            }
+            ?>
                 <!--End Card-->
             </div>
-        </div> 
+        </div>
     </section>
 </main>
-<?php include_once"template".DIRECTORY_SEPARATOR."footer.php"; ?>
+<?php include_once "template" . DIRECTORY_SEPARATOR . "footer.php"; ?> 

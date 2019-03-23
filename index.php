@@ -87,7 +87,7 @@
                 <h2 class="display-4 text-success">Como são os sorteios?</h2>
                 <p class="lead">
                     Mensalmente realizamos sorteios em nosso escritório e estes podem ser acompanhados através de nossas redes sociais.<br />
-                    <a href="">Leia Mais..</a>
+                    <a href="sorteios.php">Leia Mais..</a>
                 </p>
             </div>
         </div>

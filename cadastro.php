@@ -24,7 +24,7 @@ $ce->cadastrar();
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="name">Nome do estabelecimento</label>
-                            <input id="name" name="enome" type="text" placeholder="EX:. Farmácia Coopertral" class="form-control" maxlength="255" minlength="3" required>
+                            <input id="name" name="enome" type="text" placeholder="EX:. Farmácia Coopertral" class="form-control form-control-sm" maxlength="255" minlength="3" required>
                         </div>
                     </div>
                 </div>
@@ -32,13 +32,13 @@ $ce->cadastrar();
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="phone">Telefone Comercial</label>
-                            <input id="phone" name="ephone" type="tel" placeholder="EX:. 61000000000" class="form-control" maxlength="11" minlength="11" required>
+                            <input id="phone" name="ephone" type="tel" placeholder="EX:. 61000000000" class="form-control form-control-sm" maxlength="11" minlength="11" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="category">Categoria</label>
-                            <select class="form-control" name="ecategory" id="category" required>
+                            <select class="form-control form-control-sm" name="ecategory" id="category" required>
                                 <option disabled selected>Selecione</option>
                                 <?php
                                 $categoria = new CategoriaDAO();
@@ -57,14 +57,14 @@ $ce->cadastrar();
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="mail">Email</label>
-                            <input id="mail" name="eemail" type="email" placeholder="EX:. email@email.com" class="form-control">
+                            <input id="mail" name="eemail" type="email" placeholder="EX:. email@email.com" class="form-control form-control-sm">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="site">Site</label>
-                            <input id="site" name="esite" type="url" value="http://" class="form-control">
+                            <input id="site" name="esite" type="url" value="http://" class="form-control form-control-sm">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ $ce->cadastrar();
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="maps">Link do Google maps</label>
-                            <textarea name="emaps" class="form-control" rows="1" placeholder="Cole o código aqui, para melhorar a visualização recomenda-se que retite o atributo WIDTH='600'. "></textarea>
+                            <textarea name="emaps" class="form-control form-control-sm" rows="1" placeholder="Cole o código aqui, para melhorar a visualização recomenda-se que retite o atributo WIDTH='600'. "></textarea>
                         </div>
                     </div>
                 </div>
@@ -80,13 +80,13 @@ $ce->cadastrar();
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="adress">Endereço</label>
-                            <input id="adress" name="eadress" type="text" placeholder="EX:." class="form-control">
+                            <input id="adress" name="eadress" type="text" placeholder="EX:." class="form-control form-control-sm">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="district" data-toggle="tooltip" data-placement="right" title="Caso o seu bairro não esteja aparecendo nos envie uma mensagem de contato">Bairro</label>
-                            <select class="form-control" name="edistrict" required>
+                            <select class="form-control form-control-sm" name="edistrict" required>
                                 <option selected disabled>Bairro</option>
                                 <?php
                                 $bairro = new BairroDAO();
@@ -105,7 +105,7 @@ $ce->cadastrar();
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="describe">Sobre</label>
-                            <textarea name="edescribe" id="describe" class="form-control" placeholder="Aqui: Fale um pouco sobre o seu negócio, use uma descrição curta e objetiva."></textarea>
+                            <textarea name="edescribe" id="describe" class="form-control form-control-sm" placeholder="Aqui: Fale um pouco sobre o seu negócio, use uma descrição curta e objetiva."></textarea>
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ $ce->cadastrar();
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="imagem">Tamanho máximo da imagem 4MB</label>
-                            <input class="form-control-file" id="imagem" name="imagem" type="file">
+                            <input class="form-control-sm file" id="imagem" name="imagem" type="file"><br />
                             <input type="checkbox" name="eterms" value="1" required><small><a href="#" data-toggle="modal" data-target="#exampleModalLong"> Aceito os termos de uso</a></small><br>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ $ce->cadastrar();
                     </div>
                     <div class="col-md-8">
                         <div class="form-group">
-                            <button class="btn btn-success" name="cadastrar" value="true"><i class="fa fa-save"></i> Cadastrar</button>
+                            <button class="btn btn-success btn-lg" name="cadastrar" value="true"><i class="fa fa-save"></i> Confirmar</button>
                         </div>
                     </div>
                 </div>
