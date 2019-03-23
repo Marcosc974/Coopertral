@@ -4,101 +4,69 @@ class Usuario {
 
     private $uid;
     private $unome;
-    private $email;
-    private $senha;
-    private $status;
-    private $perfil;
-    
-    public function getIdUser() {
-        return $this->idUser;
+    private $uemail;
+    private $usenha;
+    private $ustatus;
+    private $uestabelecimento;
+    private $uperfil;
+
+    function getUid() {
+        return $this->uid;
     }
 
-    public function getNome() {
-        return $this->nome;
+    function getUnome() {
+        return $this->unome;
     }
 
-    public function getSobrenome() {
-        return $this->sobrenome;
+    function getUemail() {
+        return $this->uemail;
     }
 
-    public function getEmail() {
-        return $this->email;
+    function getUsenha() {
+        return $this->usenha;
     }
 
-    public function getSenha() {
-        return $this->senha;
+    function getUstatus() {
+        return $this->ustatus;
     }
 
-    public function getFoto() {
-        return $this->foto;
+    function getUestabelecimento() {
+        return $this->uestabelecimento;
     }
 
-    public function getNascimento() {
-        return $this->nascimento;
+    function getUperfil() {
+        return $this->uperfil;
     }
 
-    public function getSobre() {
-        return $this->sobre;
+    function setUid($uid) {
+        $this->uid = $uid;
     }
 
-    public function getStatus() {
-        return $this->status;
+    function setUnome($unome) {
+        $this->unome = $unome;
     }
 
-    public function getPerfil() {
-        return $this->perfil;
-    }
-
-    public function getDataCadastro() {
-        return $this->dataCadastro;
-    }
-
-    public function setIdUser($idUser) {
-        $this->idUser = filter_var($idUser, FILTER_VALIDATE_INT);
-    }
-
-    public function setNome($nome) {
-        if (!empty($nome) && trim($nome)) {
-            $this->nome = filter_var($nome, FILTER_SANITIZE_STRING);
+    function setUemail($uemail) {
+        if (filter_var($uemail, FILTER_VALIDATE_EMAIL)) {
+            $this->uemail = $uemail;
         }
+        return false;
     }
 
-    public function setSobrenome($sobrenome) {
-        if (!empty($sobrenome) && trim($sobrenome)) {
-            $this->sobrenome = filter_var($sobrenome, FILTER_SANITIZE_STRING);
-        }
+    function setUsenha($usenha) {
+        $this->usenha = $usenha;
     }
 
-    public function setEmail($email) {
-        $this->email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    function setUstatus($ustatus) {
+        $this->ustatus = $ustatus;
     }
 
-    public function setSenha($senha) {
-        $this->senha = $senha;
+    function setUestabelecimento($uestabelecimento) {
+        $this->uestabelecimento = $uestabelecimento;
     }
 
-    public function setFoto($foto) {
-        $this->foto = $foto;
-    }
-
-    public function setNascimento($nascimento) {
-        $this->nascimento = $nascimento;
-    }
-
-    public function setSobre($sobre) {
-        $this->sobre = $sobre;
-    }
-
-    public function setStatus($status) {
-        $this->status = filter_var($status, FILTER_VALIDATE_BOOLEAN);
-    }
-
-    public function setPerfil($perfil) {
-        $this->perfil = filter_var($perfil, FILTER_VALIDATE_INT);
-    }
-
-    public function setDataCadastro($dataCadastro) {
-        $this->dataCadastro = $dataCadastro;
+    function setUperfil($uperfil) {
+        $this->uperfil = $uperfil;
     }
 
 }

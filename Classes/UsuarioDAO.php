@@ -6,13 +6,14 @@ Class UsuarioDAO {
 
     public function salvar(Usuario $u) {
         try {
-            $sql = "INSERT INTO usuario(nomeUser,sobrenomeUser,emailUser,senhaUser,perfil) VALUES (?,?,?,?,?)";
+            $sql = "INSERT INTO usuario(unome,uemail,usenha,ustatus,uestabelecimento,uperfil) VALUES (?,?,?,?,?,?)";
             $stm = Conexao::conectar()->prepare($sql);
-            $stm->bindValue(1, $u->getNome());
-            $stm->bindValue(2, $u->getSobrenome());
-            $stm->bindValue(3, $u->getEmail());
-            $stm->bindValue(4, password_hash($u->getSenha(), PASSWORD_DEFAULT));
-            $stm->bindValue(5, $u->getPerfil());
+            $stm->bindValue(1, $u->getUnome());
+            $stm->bindValue(2, $u->getUemail());
+            $stm->bindValue(3, password_hash($u->getUsenha(), PASSWORD_DEFAULT));
+            $stm->bindValue(4, $u->getUstatus());
+            $stm->bindValue(5, $u->getUestabelecimento());
+            $stm->bindValue(6, $u->getUperfil());
             $stm->execute();
             return true;
         } catch (Exception $e) {
@@ -116,9 +117,9 @@ Class UsuarioDAO {
     }
 
     public function buscarLogin(Usuario $u) {
-        $sql = "SELECT idUser,nomeUser,emailUser,senhaUser,statusUser,perfil FROM usuario WHERE emailUser=?";
+        $sql = "SELECT * FROM usuario WHERE uemail=?";
         $stm = Conexao::conectar()->prepare($sql);
-        $stm->bindValue(1, $u->getEmail());
+        $stm->bindValue(1, $u->getUemail());
         $stm->execute();
         if ($stm->rowCount() > 0) {
             $result = $stm->fetchAll();

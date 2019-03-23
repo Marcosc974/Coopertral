@@ -3,13 +3,14 @@
 require_once 'Usuario.php';
 require_once 'UsuarioDAO.php';
 
-class ControllerUser {
+class ControllerUser
+{
 
     var $response;
 
-    public function login() {
+    public function login()
+    {
         if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email']) && isset($_POST['email'])) {
-
             $u = new Usuario();
             $ud = new UsuarioDAO();
             $u->setUemail(trim($_POST['email']));
@@ -17,7 +18,6 @@ class ControllerUser {
             if ($u->getUemail()) {
 
                 $row = $ud->buscarLogin($u);
-
                 if ($row[0]['uemail']) {
 
                     $u->setUsenha($_POST['senha']);
@@ -34,14 +34,13 @@ class ControllerUser {
             }
             return $this->response = "Este não é um e-mail válido";
         }
-        return $this->response = "Preencha os campos corretamente";
     }
 
-    public function verifySession() {
+    public function verifySession()
+    {
         if (!isset($_SESSION['logado'])) {
             session_destroy();
             header("location:login.php");
         }
     }
-
 }
