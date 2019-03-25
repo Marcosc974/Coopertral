@@ -40,13 +40,13 @@ class ControllerContato {
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
 
-                    $mail->setFrom($remetente, $name);
+                    $mail->setFrom('noreply@cooperativacoopertral.com.br', $name);
                     //endereço e assunto de quem receberá o email
-                    $mail->addAddress('MARCOSVINICIUSMV229@GMAIL.COM', 'Coopertral');
-                    $mail->addAddress('marcosc974@gmail.com', 'Coopertral');
+                    $mail->addAddress('marcosviniciusmv229@gmail.com', 'Contato');
+                    $mail->addAddress('marcosc974@gmail.com', 'Contato');
                     $mail->isHTML(true);
                     $mail->Subject = 'Coopertral';
-                    $mail->Body = '<b>E-mail: </b>' . $remetente . '</b><br/> <b>Nome: </b> ' . $name . '<br/><b>Telefone: </b> ' . $phone . "<br/><b>Mensagem:</b>" . $message;
+                    $mail->Body = '<h1>Contato Cooperativa Coopertral</h1>' . '<b>E-mail: </b>' . $remetente . '</b><br/> <b>Nome: </b> ' . $name . '<br/><b>Telefone: </b> ' . $phone . "<br/><b>Mensagem:</b>" . $message;
                     if ($mail->send()) {
                         $this->mensagem = "Sua Mensagem foi enviada com sucesso!";
                     } else {

@@ -21,7 +21,7 @@ class EstabelecimentoDAO {
             $stm->bindValue(10, $e->getEbairro());
             $stm->bindValue(11, $e->getEcategoria());
             $stm->execute();
-            return "Dados do estabelecimento salvos com sucesso!";
+            return Conexao::conectar()->lastInsertId();
         } catch (Exception $e) {
             return "Erro ao salvar a Classe: (Estabelecimento): " . $e->getMessage();
         }

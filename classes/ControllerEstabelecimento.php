@@ -1,19 +1,19 @@
 <?php
-
+require_once 'Messenger.php';
 require_once 'Estabelecimento.php';
 require_once 'EstabelecimentoDAO.php';
 require_once 'Upload.php';
+require_once 'Usuario.php';
+require_once 'UsuarioDAO.php';
+
 class ControllerEstabelecimento {
 
     var $cadastrar;
     var $buscar;
 
     public function cadastrar() {
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['cadastrar']) {
-
             $curl = curl_init();
-
             curl_setopt_array($curl, [
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
@@ -24,7 +24,6 @@ class ControllerEstabelecimento {
                     'remoteip' => $_SERVER['REMOTE_ADDR']
                 ]
             ]);
-
             $response = json_decode(curl_exec($curl));
             curl_close($curl);
             if ($response->success == true) {
@@ -41,6 +40,7 @@ class ControllerEstabelecimento {
                     } else {
                         echo "<script>alert('O email Já está sendo Utilizado.');"
                         . "window.history.back();</script>";
+                        exit();
                     }
                     $e->setEsite($_POST['esite']);
                     $e->setElink($_POST['emaps']);
@@ -58,8 +58,17 @@ class ControllerEstabelecimento {
                         $e->setEimagem($up->enviarArquivo());
                     }
                 }
-
-                return $this->cadastrar = $edao->salvar($e);
+                $user = new Usuario();
+                $user->setUnome($e->getEemail());
+                $user->setUemail($e->getEemail());
+                $user->setUsenha($e->getEemail());
+                $user->setUestabelecimento($edao->salvar($e));
+                $user->setUperfil(2);
+                $udao = new UsuarioDAO();
+                $udao->salvar($user);
+                $m = new Messenger();
+                $m->sendMessage($e->getEemail(), $e->getEemail());
+                return $this->cadastrar = "Sucesso";
             } else {
                 return $this->cadastrar = "O Recapcha deve ser marcado!.";
             }
@@ -108,8 +117,8 @@ class ControllerEstabelecimento {
             if (isset($_FILES['imagem'])) {
                 $foto = $_FILES['imagem'];
                 if ($foto['name']) {
-                    require_once '../admin/Uploads.php';
-                    $up = new Uploads();
+                    require_once 'classes/Upload.php';
+                    $up = new Upload();
                     $e->setEimagem($up->enviarArquivo());
                     $edao->trocarFoto($e);
                 }

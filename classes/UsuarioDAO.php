@@ -6,14 +6,14 @@ Class UsuarioDAO {
 
     public function salvar(Usuario $u) {
         try {
-            $sql = "INSERT INTO usuario(unome,uemail,usenha,ustatus,uestabelecimento,uperfil) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO usuario(unome,uemail,usenha,uestabelecimento,uperfil) VALUES (?,?,?,?,?)";
             $stm = Conexao::conectar()->prepare($sql);
+            
             $stm->bindValue(1, $u->getUnome());
             $stm->bindValue(2, $u->getUemail());
             $stm->bindValue(3, password_hash($u->getUsenha(), PASSWORD_DEFAULT));
-            $stm->bindValue(4, $u->getUstatus());
-            $stm->bindValue(5, $u->getUestabelecimento());
-            $stm->bindValue(6, $u->getUperfil());
+            $stm->bindValue(4, $u->getUestabelecimento());
+            $stm->bindValue(5, $u->getUperfil());
             $stm->execute();
             return true;
         } catch (Exception $e) {

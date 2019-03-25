@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Classes/Bairro.php';
-require_once '../Classes/BairroDAO.php';
+require_once 'Classes/Bairro.php';
+require_once 'Classes/BairroDAO.php';
 
 class ControllerBairro {
 

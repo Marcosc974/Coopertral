@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Classes/Categoria.php';
-require_once '../Classes/CategoriaDAO.php';
+require_once 'Classes/Categoria.php';
+require_once 'Classes/CategoriaDAO.php';
 
 class ControllerCategoria {
 
