@@ -53,10 +53,10 @@ Class UsuarioDAO {
 
     public function trocarSenha(Usuario $u) {
         try {
-            $sql = "UPDATE usuario SET senhaUser =? WHERE emailUser=?";
+            $sql = "UPDATE usuario SET usenha =? WHERE uemail=?";
             $stm = Conexao::conectar()->prepare($sql);
-            $stm->bindValue(1, password_hash($u->getSenha(), PASSWORD_DEFAULT));
-            $stm->bindValue(2, $u->getEmail());
+            $stm->bindValue(1, password_hash($u->getUsenha(), PASSWORD_DEFAULT));
+            $stm->bindValue(2, $u->getUemail());
             $stm->execute();
             return "Senha atualizada com sucesso! ";
         } catch (Exception $e) {
