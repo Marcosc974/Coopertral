@@ -1,9 +1,11 @@
 <?php
-require_once './validacao.php';
-include_once '../Classes/Conexao.php';
-include_once '../Classes/CategoriaDAO.php';
+session_start();
+require_once 'classes/ControllerUser.php';
+$ccu = new ControllerUser();
+$ccu->verifySession();
+include_once 'Classes/CategoriaDAO.php';
 $cd = new CategoriaDAO();
-require_once '../Classes/ControllerCategoria.php';
+require_once 'Classes/ControllerCategoria.php';
 $cc = new ControllerCategoria();
 $cc->salvarCategoria();
 ?>
@@ -13,10 +15,6 @@ $cc->salvarCategoria();
         <meta charset="UTF-8">
         <title></title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!--CDN Bootstrap-->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
     </head>
     <body>
         <div class="container">
@@ -33,25 +31,24 @@ $cc->salvarCategoria();
                     <h2>Cadastro de Categorias</h2>
                     <?php
                     if (isset($_POST['opcao']) && isset($_POST['id'])) {
-                       foreach ($cd->buscar($_POST['id']) as $data) {
-                       ?>
-                        <form method="post">
-                            <div class="form-group col-md-12">
-                                <input type="hidden" name="opcao" value="editar">
-                                <input type="hidden" name="cid" value="<?=$data['cid'];?>">
-                                <input type="text" required name="categoria" value="<?=$data['cnome']?>" class="form-control">
-                            </div>
-                            <div class="form-group col-md-12
-                                 ">
-                                <button class="btn btn-primary">Salvar Edição</button>
-                            </div>
-                        </form>
-                        <?php
-                        
-                       }
+                        foreach ($cd->buscar($_POST['id']) as $data) {
+                            ?>
+                            <form method="post">
+                                <div class="form-group col-md-12">
+                                    <input type="hidden" name="opcao" value="editar">
+                                    <input type="hidden" name="cid" value="<?= $data['cid']; ?>">
+                                    <input type="text" required name="categoria" value="<?= $data['cnome'] ?>" class="form-control">
+                                </div>
+                                <div class="form-group col-md-12
+                                     ">
+                                    <button class="btn btn-primary">Salvar Edição</button>
+                                </div>
+                            </form>
+                            <?php
+                        }
                     } else {
                         ?>
-                    <form method="post">
+                        <form method="post">
                             <div class="form-group col-md-12">
                                 <input type="hidden" name="opcao" value="salvar">
                                 <input type="text" required name="categoria" class="form-control">
@@ -82,8 +79,8 @@ $cc->salvarCategoria();
                                         <td><?= $c['cnome'] ?></td>
                                         <td>
                                             <form method="post">
-                                                <input type="hidden" name="id" value="<?=$c['cid'];?>">
-                                                <button name="opcao" value="editar" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i></button>
+                                                <input type="hidden" name="id" value="<?= $c['cid']; ?>">
+                                                <button name="opcao" value="editar" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>Editar</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -96,13 +93,6 @@ $cc->salvarCategoria();
                 </div>
             </div>
         </div>
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
-        </script>
+
     </body>
 </html>

@@ -7,7 +7,7 @@ class ControllerUser
 {
 
     var $response;
-
+    var $data;
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email']) && isset($_POST['email'])) {
@@ -25,7 +25,7 @@ class ControllerUser
                         session_start();
                         $_SESSION['logado'] = $row[0]['unome'];
                         $_SESSION['perfil'] = $row[0]['uperfil'];
-
+                        $_SESSION['eid'] = $row[0]['uestabelecimento'];
                         header("location:minhapagina.php");
                     }
                     return $this->response = "Login ou senha Inválidos!.";
@@ -41,6 +41,8 @@ class ControllerUser
         if (!isset($_SESSION['logado'])) {
             session_destroy();
             header("location:login.php");
+        }else{
+            $this->data = $_SESSION['logado'];
         }
     }
 }
