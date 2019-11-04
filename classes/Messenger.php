@@ -1,9 +1,7 @@
 <?php
 
-require_once 'PHPMailer/class.phpmailer.php';
-
 class Messenger {
-
+ 
     public function sendMessage($nome,$destinatario) {
         $mail = new PHPMailer(true);
         $mail->CharSet = 'UTF-8';

@@ -26,7 +26,7 @@ class ControllerUser
                         $_SESSION['logado'] = $row[0]['unome'];
                         $_SESSION['perfil'] = $row[0]['uperfil'];
                         $_SESSION['eid'] = $row[0]['uestabelecimento'];
-                        header("location:minhapagina.php");
+                        header("location:home.php");
                     }
                     return $this->response = "Login ou senha Inválidos!.";
                 }

@@ -52,7 +52,7 @@
                     <a class="nav-item nav-link text-white" href="catalogo.php">Catálogo</a>
                     <a class="nav-item nav-link text-white" href="cadastro.php">Cadastre-Se</a>
                     <a class="nav-item nav-link text-white" href="contato.php">Contato</a>
-                    <a class="nav-item nav-link text-white" href="login.php">Login</a>
+                    <a class="nav-item nav-link text-white" href="admin/login.php">Login</a>
                 </div>
             </div>
         </nav>
