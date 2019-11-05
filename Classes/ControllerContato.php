@@ -19,7 +19,7 @@ class ControllerContato {
                     CURLOPT_POST => true,
                     CURLOPT_URL => "https://www.google.com/recaptcha/api/siteverify",
                     CURLOPT_POSTFIELDS => [
-                        'secret' => '6LcboIwUAAAAAEt5VNM2gqcfyyH_oH6gnqO4Ahr6',
+                        'secret' => 'YOUR_KEY',
                         'response' => $_POST['g-recaptcha-response'],
                         'remoteip' => $_SERVER['REMOTE_ADDR']
                     ]
@@ -33,17 +33,17 @@ class ControllerContato {
                     $mail = new PHPMailer(true);
                     $mail->CharSet = 'UTF-8';
                     $mail->isSMTP();
-                    $mail->Host = 'cooperativacoopertral.com.br';
+                    $mail->Host = '';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'noreply@cooperativacoopertral.com.br';
-                    $mail->Password = '@coopertral';
+                    $mail->Username = '';
+                    $mail->Password = '';
                     $mail->SMTPSecure = 'tls';
                     $mail->Port = 587;
 
                     $mail->setFrom($remetente, $name);
                     //endereço e assunto de quem receberá o email
-                    $mail->addAddress('MARCOSVINICIUSMV229@GMAIL.COM', 'Coopertral');
-                    $mail->addAddress('marcosc974@gmail.com', 'Coopertral');
+                    $mail->addAddress('', 'Coopertral');
+                    $mail->addAddress('', 'Coopertral');
                     $mail->isHTML(true);
                     $mail->Subject = 'Coopertral';
                     $mail->Body = '<b>E-mail: </b>' . $remetente . '</b><br/> <b>Nome: </b> ' . $name . '<br/><b>Telefone: </b> ' . $phone . "<br/><b>Mensagem:</b>" . $message;
